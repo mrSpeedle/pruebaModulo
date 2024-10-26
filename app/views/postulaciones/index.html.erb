@@ -1,0 +1,23 @@
+<!-- app/views/postulaciones/index.html.erb -->
+<h1>Mis Postulaciones</h1>
+
+<% if @postulaciones.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Oferta Laboral</th>
+        <th>Fecha de Postulación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @postulaciones.each do |postulacion| %>
+        <tr>
+          <td><%= postulacion.oferta_laboral.titulo %></td>
+          <td><%= postulacion.created_at.strftime("%d/%m/%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No tienes postulaciones registradas.</p>
+<% end %>

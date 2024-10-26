@@ -1,0 +1,11 @@
+<h1>OfertasLaborales#new</h1>
+<p>Find me in app/views/ofertas_laborales/new.html.erb</p>
+<%= form_with(model: @oferta_laboral) do |form| %>
+  <%= form.label :titulo %>
+  <%= form.text_field :titulo %>
+
+  <%= form.label :descripcion %>
+  <%= form.text_area :descripcion %>
+
+  <%= form.submit "Crear Oferta" %>
+<% end %>

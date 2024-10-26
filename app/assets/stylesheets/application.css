@@ -1,0 +1,135 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+/* app/assets/stylesheets/application.scss */
+
+/* Estilos generales */
+body {
+    background-color: #B0C4DE; /* Color pastel oscuro para el fondo */
+    color: #333; /* Color de texto general */
+    font-family: Arial, sans-serif; /* Fuente general */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px; /* Limita el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Estilos de las tarjetas */
+.card {
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde ligero */
+    margin-bottom: 20px; /* Espaciado entre tarjetas */
+    padding: 20px; /* Espaciado interno en las tarjetas */
+}
+
+/* Botones */
+.btn {
+    width: 100%; /* Asegura que los botones ocupen todo el ancho */
+    padding: 10px; /* Añade espaciado interno a los botones */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente más grande */
+}
+
+/* Formularios */
+.form-control {
+    padding: 10px; /* Espaciado interno para los campos de formulario */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Centrar el texto en el formulario */
+.text-center {
+    text-align: center; /* Centra el texto */
+}
+
+/* Espacio entre las acciones y el botón */
+.actions {
+    margin-top: 15px; /* Espacio entre las acciones */
+}
+
+/* Estilos para la imagen de perfil */
+.profile-image {
+    max-width: 100px; /* Ajustar según el diseño deseado */
+    max-height: 100px; /* Ajustar según el diseño deseado */
+    object-fit: cover; /* Asegura que la imagen mantenga sus proporciones */
+    border-radius: 50%; /* Opcional para hacer la imagen circular */
+}
+
+/* Estilos del navbar */
+.navbar {
+    background-color: #4682B4; /* Color más oscuro para el navbar */
+}
+
+.navbar .nav-link {
+    color: #FFFFFF; /* Cambiar color del texto del navbar a blanco */
+}
+
+.navbar .navbar-brand {
+    color: #FFFFFF; /* Cambiar color de la marca a blanco */
+}
+
+/* Asegurar que los enlaces cambien al pasar el mouse */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: #FFD700; /* Color dorado al pasar el mouse */
+}
+
+.lead {
+    font-size: 1.25rem; /* Tamaño de fuente de la clase lead */
+}
+
+/* Estilos del footer */
+.footer {
+    padding: 20px 0; /* Espaciado vertical del footer */
+    background-color: #4682B4; /* Color claro para el fondo del footer */
+}
+
+.footer .text-muted {
+    color: white !important; /* Color del texto de los enlaces */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Estilos adicionales */
+.form-check {
+    margin-bottom: 0; /* Elimina el margen inferior para reducir espacio */
+}
+
+.form-check-input {
+    margin-top: 0.3rem; /* Ajusta la alineación vertical del checkbox */
+}
+
+.btn-descargar-cv {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho */
+    padding: 10px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #4682B4; /* Color de fondo del botón */
+    color: #FFFFFF; /* Color del texto del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+.btn-descargar-cv:hover {
+    background-color: #5A9BD5; /* Color de fondo al pasar el mouse */
+}

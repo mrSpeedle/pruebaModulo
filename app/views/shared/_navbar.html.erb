@@ -1,0 +1,31 @@
+<!-- app/views/layouts/_navbar.html.erb -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<%= root_path %>">Pituto</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav <%= user_signed_in? ? 'ms-auto' : 'me-auto' %>">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Perfil', edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Ofertas Laborales', ofertas_laborales_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Mis Postulaciones', user_postulaciones_path(current_user), class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= button_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: 'nav-link', form: { class: 'd-inline' } %>
+          </li>
+        <% else %>
+          <li class="nav-item ms-auto">
+            <%= link_to 'Iniciar Sesión', new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

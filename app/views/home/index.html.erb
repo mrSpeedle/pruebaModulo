@@ -1,0 +1,9 @@
+<div class="text-center my-5">
+  <% if user_signed_in? %>
+    <p class="display-4">¡Bienvenido al portal de empleo más grande de Chile!</p>
+  <% else %>
+    <p class="display-4">Para ser parte de nuestra comunidad debes haber sido invitado :(</p>
+    <p class="lead">Por favor envía un correo a <a href="mailto:testuliotrivino@gmail.com">testuliotrivino@gmail.com</a></p>
+    <p class="lead">¿Ya tienes una cuenta registrada? <%= link_to 'Inicia sesión acá!', new_user_session_path, class: 'btn btn-link' %></p>
+  <% end %>
+</div>
