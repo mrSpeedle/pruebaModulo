@@ -4,10 +4,21 @@
       <h1><%= @oferta_laboral.titulo %></h1>
     </div>
     <div class="card-body">
-      <p><strong>Descripción:</strong> <%= @oferta_laboral.descripcion %></p>
-      <p><strong>Empresa:</strong> <%= @oferta_laboral.empresa %></p>
-      <p><strong>Número de Contacto:</strong> <%= @oferta_laboral.numero_contacto %></p>
-      <p><strong>Correo Electrónico:</strong> <%= @oferta_laboral.correo_contacto %></p>
+      <p>
+        <i class="fas fa-building"></i> <!-- Ícono de empresa -->
+        <strong>Empresa:</strong> <%= @oferta_laboral.empresa %>
+      </p>
+      <p>
+        <i class="fas fa-envelope"></i> <!-- Ícono de correo -->
+        <strong>Correo Electrónico:</strong> <%= @oferta_laboral.correo_contacto %>
+      </p>
+      <p>
+        <i class="fas fa-phone"></i> <!-- Ícono de número -->
+        <strong>Número de Contacto:</strong> <%= @oferta_laboral.numero_contacto %>
+      </p>
+      <p class="mt-4" style="min-height: 100px;"> <!-- Espacio designado para la descripción -->
+        <%= @oferta_laboral.descripcion %>
+      </p>
       <% if current_user.admin? %>
         <div class="mt-4">
           <%= link_to 'Editar Oferta', edit_ofertas_laborale_path(@oferta_laboral), class: 'btn btn-warning' %>
@@ -16,7 +27,7 @@
       <% elsif current_user.present? %>
         <div class="mt-4">
           <%= button_to 'Postular', ofertas_laborale_postulaciones_path(@oferta_laboral), method: :post, class: 'btn btn-success' %> 
-       </div>
+        </div>
       <% end %>
     </div>
     <div class="card-footer text-muted">
@@ -25,5 +36,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

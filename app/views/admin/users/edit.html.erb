@@ -1,37 +1,39 @@
-<h1>Editar Usuario</h1>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Editar Usuario</h1>
 
-<%= form_with(model: @user) do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, disabled: true %> <!-- No permitir editar el email -->
-  </div>
+  <%= form_with(model: @user, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.email_field :email, disabled: true, class: 'form-control' %> <!-- No permitir editar el email -->
+    </div>
 
-  <div>
-    <%= form.label :password %> (dejar en blanco si no se quiere cambiar)
-    <%= form.password_field :password %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :password, class: 'form-label' %> (dejar en blanco si no se quiere cambiar)
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= form.label :password_confirmation %> (dejar en blanco si no se quiere cambiar)
-    <%= form.password_field :password_confirmation %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: 'form-label' %> (dejar en blanco si no se quiere cambiar)
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= form.label :role %>
-    <%= form.select :role, User.roles.keys.map { |role| [role.humanize.capitalize, role] }, selected: @user.role %> 
-  </div>
+    <div class="mb-3">
+      <%= form.label :role, class: 'form-label' %>
+      <%= form.select :role, User.roles.keys.map { |role| [role.humanize.capitalize, role] }, selected: @user.role, class: 'form-select' %>
+    </div>
 
-  <div>
-    <%= form.label :foto_perfil %> (dejar en blanco si no se quiere cambiar)
-    <%= form.file_field :foto_perfil %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :foto_perfil, class: 'form-label' %> (dejar en blanco si no se quiere cambiar)
+      <%= form.file_field :foto_perfil, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= form.label :cv %> (dejar en blanco si no se quiere cambiar)
-    <%= form.file_field :cv %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :cv, class: 'form-label' %> (dejar en blanco si no se quiere cambiar)
+      <%= form.file_field :cv, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= form.submit 'Actualizar Usuario' %>
-  </div>
-<% end %>
+    <div class="text-center">
+      <%= form.submit 'Actualizar Usuario', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
