@@ -133,3 +133,11 @@ body {
 .btn-descargar-cv:hover {
     background-color: #5A9BD5; /* Color de fondo al pasar el mouse */
 }
+
+.pagination {
+    margin: 20px 0;
+  }
+  
+  .pagination a {
+    margin: 0 5px;
+  }
