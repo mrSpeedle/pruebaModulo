@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Configuración de Devise para usuarios
   devise_for :users, controllers: { registrations: 'users/registrations' }
   
+  namespace :admin do
+    resources :users, only: [:index, :new, :create, :edit, :update]
+  end
+
   # Rutas para ofertas laborales y sus postulaciones
   resources :ofertas_laborales do
     resources :postulaciones, only: [:create] # Solo permite crear postulaciones
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
   # Ruta para ver las postulaciones de un usuario específico
   resources :users, only: [:edit, :update] do
     get 'postulaciones', to: 'postulaciones#index', as: 'postulaciones' # Define la ruta para las postulaciones del usuario
+    resources :postulaciones, only: [:index, :create]
   end
 
   # Health check para verificar el estado de la aplicación

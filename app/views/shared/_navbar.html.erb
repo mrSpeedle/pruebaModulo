@@ -14,9 +14,19 @@
           <li class="nav-item">
             <%= link_to 'Ofertas Laborales', ofertas_laborales_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'Mis Postulaciones', user_postulaciones_path(current_user), class: 'nav-link' %>
-          </li>
+
+          <% unless current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to 'Mis Postulaciones', user_postulaciones_path(current_user), class: 'nav-link' %>
+            </li>
+          <% end %>
+
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to 'Administración', admin_users_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+
           <li class="nav-item">
             <%= button_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: 'nav-link', form: { class: 'd-inline' } %>
           </li>

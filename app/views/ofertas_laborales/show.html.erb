@@ -1,2 +1,29 @@
-<h1>OfertasLaborales#show</h1>
-<p>Find me in app/views/ofertas_laborales/show.html.erb</p>
+<div class="container my-5">
+  <div class="card text-center">
+    <div class="card-header">
+      <h1><%= @oferta_laboral.titulo %></h1>
+    </div>
+    <div class="card-body">
+      <p><strong>Descripción:</strong> <%= @oferta_laboral.descripcion %></p>
+      <p><strong>Empresa:</strong> <%= @oferta_laboral.empresa %></p>
+      <p><strong>Número de Contacto:</strong> <%= @oferta_laboral.numero_contacto %></p>
+      <p><strong>Correo Electrónico:</strong> <%= @oferta_laboral.correo_contacto %></p>
+      <% if current_user.admin? %>
+        <div class="mt-4">
+          <%= link_to 'Editar Oferta', edit_ofertas_laborale_path(@oferta_laboral), class: 'btn btn-warning' %>
+          <%= button_to 'Borrar Oferta', ofertas_laborale_path(@oferta_laboral), method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar esta oferta?' }, class: 'btn btn-danger' %>
+        </div>
+      <% elsif current_user.present? %>
+        <div class="mt-4">
+          <%= button_to 'Postular', ofertas_laborale_postulaciones_path(@oferta_laboral), method: :post, class: 'btn btn-success' %> 
+       </div>
+      <% end %>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="text-center">
+        <%= link_to 'Volver a Ofertas Laborales', ofertas_laborales_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

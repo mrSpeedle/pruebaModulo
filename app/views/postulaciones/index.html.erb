@@ -1,23 +1,33 @@
-<!-- app/views/postulaciones/index.html.erb -->
-<h1>Mis Postulaciones</h1>
-
-<% if @postulaciones.any? %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Oferta Laboral</th>
-        <th>Fecha de Postulación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @postulaciones.each do |postulacion| %>
+<h1 class="text-center">Mis Postulaciones</h1>
+<div class="container mt-4">
+  <% if @postulaciones.any? %>
+    <table class="table table-bordered text-center">
+      <thead>
         <tr>
-          <td><%= postulacion.oferta_laboral.titulo %></td>
-          <td><%= postulacion.created_at.strftime("%d/%m/%Y") %></td>
+          <th>Oferta Laboral</th>
+          <th>Fecha de Postulación</th>
+          <th>Empresa</th>
+          <th>Acciones</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>No tienes postulaciones registradas.</p>
-<% end %>
+      </thead>
+      <tbody>
+        <% @postulaciones.each do |postulacion| %>
+          <tr>
+            <td><%= postulacion.oferta_laboral.titulo %></td>
+            <td><%= postulacion.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= postulacion.oferta_laboral.empresa %></td>
+            <td>
+              <% if postulacion.cv.attached? %>
+                <%= link_to "Descargar CV", rails_blob_path(postulacion.cv, disposition: "attachment"), class: "btn btn-descargar-cv" %>
+              <% else %>
+                No hay CV disponible
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="text-center">No tienes postulaciones registradas.</p>
+  <% end %>
+</div>

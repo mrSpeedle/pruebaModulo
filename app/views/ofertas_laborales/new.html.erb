@@ -1,11 +1,47 @@
-<h1>OfertasLaborales#new</h1>
-<p>Find me in app/views/ofertas_laborales/new.html.erb</p>
-<%= form_with(model: @oferta_laboral) do |form| %>
-  <%= form.label :titulo %>
-  <%= form.text_field :titulo %>
-
-  <%= form.label :descripcion %>
-  <%= form.text_area :descripcion %>
-
-  <%= form.submit "Crear Oferta" %>
-<% end %>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Crear Nueva Oferta Laboral</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8"> <!-- Limitar el ancho del formulario -->
+      <%= form_with(model: @oferta_laboral, url: ofertas_laborales_path) do |form| %>
+        <% if @oferta_laboral.errors.any? %>
+          <div class="alert alert-danger">
+            <h4><%= pluralize(@oferta_laboral.errors.count, "error") %> prohibited this oferta laboral from being saved:</h4>
+            <ul>
+              <% @oferta_laboral.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.label :titulo, "Título de la Oferta" %>
+          <%= form.text_field :titulo, class: "form-control", placeholder: "Ej. Desarrollador Web" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :empresa, "Nombre de la Empresa" %>
+          <%= form.text_field :empresa, class: "form-control", placeholder: "Ej. Empresa XYZ" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :correo_contacto, "Correo Electrónico de Contacto" %>
+          <div class="input-group">
+            <%= form.email_field :correo_contacto, class: "form-control", placeholder: "Ej. contacto@empresa.com" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= form.label :numero_contacto, "Número de Contacto" %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+            </div>
+            <%= form.telephone_field :numero_contacto, class: "form-control", placeholder: "Ej. +56 9 1234 5678" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= form.label :descripcion, "Descripción de la Oferta" %>
+          <%= form.text_area :descripcion, class: "form-control", placeholder: "Describe los requisitos y responsabilidades del puesto..." %>
+        </div>
+        <%= form.submit "Crear Oferta Laboral", class: "btn btn-success mt-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

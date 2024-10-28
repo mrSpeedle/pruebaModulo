@@ -1,0 +1,37 @@
+<h1>Editar Usuario</h1>
+
+<%= form_with(model: @user) do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, disabled: true %> <!-- No permitir editar el email -->
+  </div>
+
+  <div>
+    <%= form.label :password %> (dejar en blanco si no se quiere cambiar)
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %> (dejar en blanco si no se quiere cambiar)
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.label :role %>
+    <%= form.select :role, User.roles.keys.map { |role| [role.humanize.capitalize, role] }, selected: @user.role %> 
+  </div>
+
+  <div>
+    <%= form.label :foto_perfil %> (dejar en blanco si no se quiere cambiar)
+    <%= form.file_field :foto_perfil %>
+  </div>
+
+  <div>
+    <%= form.label :cv %> (dejar en blanco si no se quiere cambiar)
+    <%= form.file_field :cv %>
+  </div>
+
+  <div>
+    <%= form.submit 'Actualizar Usuario' %>
+  </div>
+<% end %>

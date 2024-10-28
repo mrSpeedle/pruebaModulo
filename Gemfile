@@ -60,3 +60,6 @@ gem 'devise'
 gem 'faker'
 gem 'figaro'
 gem 'aws-sdk-s3', require: false
+gem "fiddle", "~> 1.1"
+
+gem "kaminari", "~> 1.2"
